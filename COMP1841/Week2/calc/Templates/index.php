@@ -1,19 +1,19 @@
 <?php
-// COMP1841 - Week 2 - Calculator (Part 1–3)
+
 
 if (!isset($_POST['val1'])) {
-    // (== dòng 3 yêu cầu include form)
+    
     $title = 'Basic Calculator';
     include __DIR__ . '/templates/form.html.php';
     exit;
 }
 
-// Lấy dữ liệu POST
+
 $val1 = $_POST['val1'] ?? '';
 $val2 = $_POST['val2'] ?? '';
 $calc = $_POST['calc'] ?? 'add';
 
-// Part 3: kiểm tra hợp lệ
+
 if (!(is_numeric($val1) && is_numeric($val2))) {
     $title = 'Input Error';
     $error = 'Both inputs must be numeric (e.g., 12, 3.5, -7).';
@@ -35,7 +35,7 @@ switch ($calc) {
         $result = $a - $b;
         $opSymbol = '−';
         break;
-    // Part 2: nhân & chia
+   
     case 'mul':
         $result = $a * $b;
         $opSymbol = '×';
@@ -57,9 +57,9 @@ switch ($calc) {
         exit;
 }
 
-// Tạo chuỗi output (Part 1)
+
 $output = "{$a} {$opSymbol} {$b} = {$result}";
 
-// (== dòng 16 yêu cầu include result)
 $title = 'Result';
 include __DIR__ . '/templates/result.html.php';
+
